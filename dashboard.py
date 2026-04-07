@@ -1016,7 +1016,7 @@ def main():
     results = st.session_state.get("results", None)
 
     if not results:
-        st.info("No live data in session — showing demo output. Padmasri: set st.session_state['results'] and st.session_state['query'] before calling st.switch_page('dashboard.py')")
+        st.info("No live data in session — showing demo output. ")
         results = DEMO_RESULTS
 
     # ── Load Groq API key ──

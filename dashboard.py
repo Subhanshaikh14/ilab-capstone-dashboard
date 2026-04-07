@@ -1094,8 +1094,7 @@ def main():
     else:
         render_multi_goal(valid, goals_df, buckets_df, proj_df, api_key)
 
-    st.divider()
-    render_follow_up_buttons(valid, goals_df)
+
 
 
 if __name__ == "__main__":

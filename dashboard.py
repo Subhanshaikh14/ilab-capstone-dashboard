@@ -1019,15 +1019,28 @@ def main():
         st.info("No live data in session — showing demo output. Padmasri: set st.session_state['results'] and st.session_state['query'] before calling st.switch_page('dashboard.py')")
         results = DEMO_RESULTS
 
-    # ── Load Groq API key from .env or environment ──
-    api_key = os.environ.get("GROQ_API_KEY", "")
+    # ── Load Groq API key ──
+    # Priority: 1) st.secrets (Streamlit Cloud), 2) environment variable, 3) .env file
+    api_key = ""
+
+    # 1. Streamlit Cloud secrets
+    try:
+        api_key = st.secrets.get("GROQ_API_KEY", "")
+    except Exception:
+        pass
+
+    # 2. Environment variable
+    if not api_key:
+        api_key = os.environ.get("GROQ_API_KEY", "")
+
+    # 3. Local .env file
     if not api_key:
         try:
             env_path = os.path.join(os.path.dirname(__file__), ".env")
             if os.path.exists(env_path):
-                with open(env_path) as f:
+                with open(env_path, encoding="utf-8") as f:
                     for line in f:
-                        line = line.strip()
+                        line = line.strip().lstrip("\ufeff")
                         if line.startswith("GROQ_API_KEY="):
                             api_key = line.split("=", 1)[1].strip().strip('"').strip("'")
                             break

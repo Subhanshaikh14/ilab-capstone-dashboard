@@ -1,0 +1,12 @@
+﻿__pycache__/
+*.pyc
+*.pyo
+.env
+.venv/
+venv/
+*.pkl
+*.csv
+*.json
+!data/sample/*.json
+.DS_Store
+desktop.ini

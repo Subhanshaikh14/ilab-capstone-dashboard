@@ -1,0 +1,38 @@
+﻿[
+  {
+    "goal_id": 3,
+    "attainability": 0.18,
+    "relevance": 0.29,
+    "coherence": 0.36,
+    "integrity": 0.41,
+    "overall": 0.31,
+    "composite_adjusted": 0.31,
+    "gp_mean": 0.21,
+    "gp_std": 0.062,
+    "gp_weight": 0.55,
+    "llm_weight": 0.45,
+    "baseline": 0.19,
+    "uncertain": false,
+    "at_risk": true,
+    "critical": true,
+    "weakest_dim": "attainability",
+    "composite_p6": 0.33,
+    "composite_p12": 0.36,
+    "reasoning": {
+      "attainability": "Current ROAS of 0.91 against a target of 3.5. Projected ROAS by period 24 is approximately 1.4.",
+      "relevance": "Sitting in orange_high - overfunded relative to current output gains.",
+      "coherence": "Allocation drift is moderate. Partially inconsistent with L2 bucket pattern.",
+      "integrity": "Output quality is high (0.90) but needle move ratio of 0.33 suggests poor conversion."
+    },
+    "llm_scores": {
+      "llama3":   {"attainability": 0.17, "relevance": 0.30, "coherence": 0.35, "integrity": 0.40, "success": true},
+      "gemma3":   {"attainability": 0.19, "relevance": 0.28, "coherence": 0.37, "integrity": 0.43, "success": true},
+      "nemotron": {"attainability": 0.18, "relevance": 0.29, "coherence": 0.35, "integrity": 0.40, "success": true}
+    },
+    "ensemble_meta": {
+      "attainability": {"gp_std": 0.062, "gp_weight": 0.55, "llm_weight": 0.45, "uncertain": false}
+    },
+    "n_llm_ok": 3,
+    "status": "ok"
+  }
+]
